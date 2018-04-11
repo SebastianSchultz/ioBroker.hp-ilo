@@ -48,7 +48,7 @@ function Read_ILO()
 			adapter.setObjectNotExists("info.ILO_Status", {
 			type: "state",
 			common: {
-			name: "eNet channels to subscribe for",
+			name: "ILO Status",
 				type: "string",
 				role: "state",
 				read: true,
@@ -86,6 +86,7 @@ function Read_ILO()
 				});  
             
 				adapter.setObjectNotExists("temperatures." + temp.Name.replace(/ /g, '_') + "_max", {
+					type: "state",
 					common: {
 					name: temp.PhysicalContext + "_max", 
 					type: "number",
@@ -94,17 +95,6 @@ function Read_ILO()
 					write: true
 					}
 				});		
-/*
-				adapter.createState('', 'temperatures', temp.Name.replace(/ /g, '_') + "_max", {
-					name: temp.PhysicalContext + "_max", 
-					desc: 'Max value of temperature ' + temp.PhysicalContext + ' in degrees for alarm notification',
-					type: 'number', 
-					def:  temp.LowerThresholdNonCritical,
-					read: true,
-					write: true,
-					role: 'state'  
-				});  
-*/
 			}
         }
       }
@@ -112,7 +102,7 @@ function Read_ILO()
 		for (var f in body.Fans) 
 		{
             var fan = body.Fans[f];
-            adapter.setState('fans.' + fan.FanName.replace(/ /g, '_'), fan.CurrentReading);
+            adapter.setState('fans.' + fan.FanName.replace(/ /g, '_'), fan.CurrentReading), true;
         }
         
         for (var t in body.Temperatures) 
@@ -120,8 +110,9 @@ function Read_ILO()
             var temp = body.Temperatures[t];
 			if (temp.CurrentReading > 0)
 			{
+				adapter.log.debug('Current Reading > 0');
 				adapter.setState('temperatures.' + temp.Name.replace(/ /g, '_'), temp.CurrentReading, true);
-				adapter.setState('temperatures.' + temp.Name.replace(/ /g, '_') + '_max', Math.round(temp.CurrentReading + 10), true);
+				adapter.setState("temperatures." + temp.Name.replace(/ /g, '_') + "_max", Math.round(temp.CurrentReading + 10), true);
 				Send_Notification(temp);
 			}
         }
