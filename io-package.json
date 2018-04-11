@@ -29,11 +29,9 @@
 		"telegram": false,
 		"telegram_instance": "",
 		"email": false,
-		"email_instance": ""
+		"email_instance": "",
+		"email_recipient": ""
     },
-    "objects": [
-
-    ],
     "authors": [
 	    "SebastianSchultz <mail@sebastian-schultz.de>"
     ]

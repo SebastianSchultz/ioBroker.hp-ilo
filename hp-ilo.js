@@ -6,6 +6,9 @@ var request = require('request');
 var pollTimer = null;
 var init = 0;
 var ErrorCount = 0;
+var PushoverNotificationSent = false;
+var TelegramNotificationSent = false;
+var EmailNotificationSent = false;
 
 function ILO_Request(url, next){
    url = "https://"+adapter.config.ip+url;
@@ -42,6 +45,17 @@ function Read_ILO()
 {
    ILO_Request("/rest/v1/Chassis/1/Thermal", function(body){
       if (init++ === 0)      {
+			adapter.setObjectNotExists("info.ILO_Status", {
+			type: "state",
+			common: {
+			name: "eNet channels to subscribe for",
+				type: "string",
+				role: "state",
+				read: true,
+				write: false
+			},
+			native: {}
+			});		
         for (var f in body.Fans) {
              var fan = body.Fans[f];
 			 
@@ -71,6 +85,16 @@ function Read_ILO()
 					role: 'state'  
 				});  
             
+				adapter.setObjectNotExists("temperatures." + temp.Name.replace(/ /g, '_') + "_max", {
+					common: {
+					name: temp.PhysicalContext + "_max", 
+					type: "number",
+					role: "state",
+					read: true,
+					write: true
+					}
+				});		
+/*
 				adapter.createState('', 'temperatures', temp.Name.replace(/ /g, '_') + "_max", {
 					name: temp.PhysicalContext + "_max", 
 					desc: 'Max value of temperature ' + temp.PhysicalContext + ' in degrees for alarm notification',
@@ -80,6 +104,7 @@ function Read_ILO()
 					write: true,
 					role: 'state'  
 				});  
+*/
 			}
         }
       }
@@ -97,43 +122,118 @@ function Read_ILO()
 			{
 				adapter.setState('temperatures.' + temp.Name.replace(/ /g, '_'), temp.CurrentReading, true);
 				adapter.setState('temperatures.' + temp.Name.replace(/ /g, '_') + '_max', Math.round(temp.CurrentReading + 10), true);
-				// FEHLERBENACHRICHTIGUNG: Send_Notification(temp);
+				Send_Notification(temp);
 			}
         }
 
         if (ErrorCount > 0)
 		{
+			adapter.setState("info.ILO_Status", true, true);
         }
 		else
 		{
-            //benachrichtigung_gesendet = 0;
+			adapter.setState("info.ILO_Status", false, true);
+			var PushoverNotificationSent = false;
+			var TelegramNotificationSent = false;
+			var EmailNotificationSent = false;
         }
     }, !true);	
 };
 	
-function Send_Notification(temp){
-    
-    var max = getState(instanz + pfad + temp.Name.replace(/ /g, '_') + "_max");
-    var aktuell = temp.CurrentReading;
- 
-    if (aktuell > max.val){
-        ErrorCount++;
-        if (benachrichtigung_per_email === true & benachrichtigung_gesendet === 0){
-            sendTo("email", {
-                to:      emailadresse,
-                subject: "iLO Temperatur Warnung!!",
-                text:    "Aktuelle Temperatur " + temp.Name + " = " + aktuell + " Grad Celsius."
-            });
-            benachrichtigung_gesendet = 1;
-        }
-      
-        if (benachrichtigung_per_telegramm === true & benachrichtigung_gesendet === 0){
-            sendTo("telegram.0", "send", {
-                text: ("iLO Temperatur Warnung!! Aktuelle Temperatur " + temp.Name + " = " + aktuell + " Grad Celsius.") // um die Nachricht nur an Teilnehme xy zu schicken folgendes anfügen , chatId: 'xxx'
-            });
-            benachrichtigung_gesendet = 1;
-        } 
-    }
+function Send_Notification(temp)
+{
+	var SendToPushover = adapter.config.pushover;
+	var SendToTelegram = adapter.config.telegram;
+	var SendToEmail = adapter.config.email;
+	var PushoverInstance =  '';
+	var TelegramInstance =  '';
+	var EmailInstance =  '';
+	var EmailRecipient ='';
+	if (SendToPushover)
+	{
+		var InstanceID = adapter.config.pushover_instance;
+		if (InstanceID)
+		{
+			PushoverInstance = 'pushover.' + adapter.config.pushover_instance;
+			adapter.log.debug('Send Notifications to Pushover Instance "' + PushoverInstance + '"');
+		}
+		else
+		{
+			adapter.log.error('Send Notifications to Pushover Instance in adapter config enabled but no instance defined!');
+			SendToPushover = false;
+		}
+	}
+	if (SendToTelegram)
+	{
+		var InstanceID = adapter.config.telegram_instance;
+		if (InstanceID)
+		{
+			TelegramInstance = 'telegram.' + adapter.config.telegram_instance;
+			adapter.log.debug('Send Notifications to Telegram Instance "' + TelegramInstance + '"');
+		}
+		else
+		{
+			adapter.log.error('Send Notifications to Telegram Instance in adapter config enabled but no instance defined!');
+			SendToTelegram = false;
+		}
+	}
+	if (SendToEmail)
+	{
+		var InstanceID = adapter.config.email_instance;
+		if (InstanceID)
+		{
+			EmailInstance = 'email.' + adapter.config.email_instance;
+			EmailRecipient = adapter.config.email_recipient;
+			adapter.log.debug('Send Notifications to E-Mail Instance "' + EmailInstance + '" to recipient "' + EmailRecipient + '"');
+		}
+		else
+		{	
+			adapter.log.error('Send Notifications to E-Mail Instance in adapter config enabled but no instance defined!');
+			SendToEmail = false;
+		}	
+	}
+		
+    adapter.getState('temperatures.' + temp.Name.replace(/ /g, '_') + '_max', function (err, state) 
+	{
+		if (state)
+		{
+			var max = state.val;
+			var aktuell = temp.CurrentReading;
+			adapter.log.debug('State "temperatures.' + temp.Name.replace(/ /g, '_') + '_max' + '" for notification. Actual Value: ' + aktuell +  ',  Max Value: ' + max);
+			if (aktuell > max.val)
+			{
+				ErrorCount++;
+				if (SendToPushover === true & PushoverNotificationSent === false)
+				{
+					sendTo(PushoverInstance, {
+						message: "Aktuelle Temperatur " + temp.Name + " = " + aktuell + " Grad Celsius.",
+						title: "ILO Temperatur Warnung!",
+						priority: 0
+					});
+					PushoverNotificationSent = true;
+				}
+
+				if (SendToTelegram === true & TelegramNotificationSent === false)
+				{
+					sendTo(TelegramInstance, "send", {
+						text: ("ILO Temperatur Warnung!! Aktuelle Temperatur " + temp.Name + " = " + aktuell + " Grad Celsius.")
+					});
+					TelegramNotificationSent = true;
+				} 
+
+				if (SendToEmail === true & EmailNotificationSent === false)
+				{
+					sendTo(EmailInstance, {
+						to:      EmailRecipient,
+						subject: "ILO Temperatur Warnung!!",
+						text:    "Aktuelle Temperatur " + temp.Name + " = " + aktuell + " Grad Celsius."
+					});
+					EmailNotificationSent = true;
+				}
+			}
+			
+		}
+	});
 }
 	
 adapter.on('stateChange', function (id, state)
@@ -149,21 +249,6 @@ adapter.on('ready', main);
 function main() 
 {
 	adapter.log.info('Ready. Configured HP ILO: ' + adapter.config.ip);
-	if (adapter.config.pushover == true)
-	{
-		adapter.log.debug('Pushover? ' + adapter.config.pushover);
-		adapter.log.debug('Pushover Instance: ' + 'pushover.' + adapter.config.pushover_instance);
-	}
-	if (adapter.config.telegram == true)
-	{
-		adapter.log.debug('Telegram? ' + adapter.config.telegram);
-		adapter.log.debug('Telegram Instance: ' + 'telegram.' + adapter.config.telegram_instance);
-	}
-	if (adapter.config.email == true)
-	{
-		adapter.log.debug('E-Mail? ' + adapter.config.email);
-		adapter.log.debug('E-Mail Instance: ' + 'email.' + adapter.config.email_instance)
-	}
 	Read_ILO();
     adapter.subscribeStates('*');
 	pollTimer = setInterval(Read_ILO, 120000);
