@@ -1,0 +1,121 @@
+﻿<html>
+
+<link rel="stylesheet" type="text/css" href="../../lib/css/themes/jquery-ui/redmond/jquery-ui.min.css"/>
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-ui-1.10.3.full.min.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+<script type="text/javascript" src="../../js/translate.js"></script>
+<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+
+
+<script type="text/javascript">
+    systemDictionary = {
+        "Title": {"de": "HP ILO Adapter Konfiguration", "en": "HP ILO Adapter Configuration", "ru": "HP ILO Adapter Configuration"},
+        "ip":                    {
+            "de": "IP Adresse des HP ILO:",
+            "en": "IP address of the HP ILO:",
+            "ru": "IP address of the HP ILO:"
+        },
+		"username": {
+            "de": "Benutzername:",
+            "en": "Username:",
+			"ru": "Username:"
+        },
+        "password": {
+            "de": "Passwort:",
+            "en": "Password:",
+            "ru": "Password:"
+        },
+        "Settings": {
+            "de": "Einstellungen",
+            "en": "Settings",
+			"ru": "Настройки"
+        },
+        "RestartMessage": {
+            "de": "Beim Speichern der Einstellungen wird der Adapter automatisch neu gestartet.",
+			"en": "On saving, adapter restarts with new config immediately.",
+            "ru": "On saving, adapter restarts with new config immediately."
+        }
+    };
+    function load(settings, onChange) {
+        for (var key in settings) {
+            if ($('#' + key + '.value').attr('type') == 'checkbox') {
+                $('#' + key + '.value').prop('checked', settings[key]).change(function () {
+                    onChange();
+                });
+            } else {
+                $('#' + key + '.value').val(settings[key]).change(function () {
+                    onChange();
+                }).keyup(function () {
+                    $(this).trigger('change');
+                });
+            }
+        }
+        onChange(false);
+    }
+    function save(callback) {
+        var obj = {};
+        $('.value').each(function () {
+            var $this = $(this);
+            var id = $this.attr('id');
+            if ($this.attr('type') == 'checkbox') {
+                obj[$this.attr('id')] = $this.prop('checked');
+            } else {
+                obj[$this.attr('id')] = $this.val();
+            }
+        });
+        callback(obj);
+    }
+</script>
+
+<style>
+    td {
+        font-size: 13px;
+        padding-left:1px;
+        padding-right: 4px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    input {
+        font-size: 13px;
+    }
+    h1 {
+        font-size: 11px;
+        color: #505050;
+        font-weight: bold;
+        width: 100%;
+        padding-left:6px;
+        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #e0e0e0;
+        /*background-image: linear-gradient(to right, #e0e0e0, rgba(224,224,224,0.0));*/
+        /*background-image: linear-gradient(to right, #e0e0e0, #e8e8e8 50%, #e0e0e0);*/
+    }
+</style>
+
+
+<div id="adapter-container" style="padding-left: 6px; padding-right: 0px; width: 97%;">
+
+    <table>
+        <td><img src="hp-ilo.png" /></td>
+        <td style="padding-top: 20px;padding-left: 10px"><h3 class="translate">Title</h3></td>
+    </table>
+
+    <h1 class="translate">Settings</h1>
+
+    <table>
+        <tr><td class="translate">IP</td><td><input class="value" id="ip" type="input" size="15" /></td></tr>
+        <tr><td class="translate">Username</td><td><input class="value" id="username" type="input" value="Administrator" /></td></tr>
+        <tr><td class="translate">Password</td><td><input class="value" id="password" type="input"/></td></tr>
+    </table>
+	
+    <table>
+</div>
+    </table>
+        <h3 class="translate">RestartMessage</h3>
+
+</html>

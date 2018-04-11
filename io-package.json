@@ -1,0 +1,233 @@
+{
+    "common": {
+        "name":                     "hp-ilo",
+        "version":                  "0.0.1",
+        "title":                    "HP ILO Adapter",
+        "desc":                     {
+ 			             "en": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)",
+ 			             "de": "Liest Temperaturdaten von Hewlett-Packard Servern mit Integrated Lights-out (ILO) aus",
+ 			             "ru": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)"
+	    },
+	    "license":                "MIT",
+        "platform":                 "Javascript/Node.js",
+        "mode":                     "daemon",
+        "icon":                     "hp-ilo.png",
+        "enabled":                  true,
+        "materialize": 				true,
+	    "extIcon":                  "https://raw.githubusercontent.com/SebastianSchultz/ioBroker.hp-ilo/master/admin/hp-ilo.png",
+	    "keywords":                 ["hp-ilo", "HP", "Hewlett-Packard", "Hewlett", "Packard", "ILO", "Integrated", "Lights-out"],
+        "readme":                   "https://github.com/SebastianSchultz/iobroker.hp-ilo/blob/master/README.md",
+	    "loglevel":                 "info",
+        "type":                     "multimedia"
+    },
+    "native": {
+        "ip":       "",
+		"timeout":  "15000",
+        "interval": "60000"
+    },
+    "objects": [
+
+    ],
+    "authors": [
+	    "SebastianSchultz <mail@sebastian-schultz.de>"
+    ],
+    "instanceObjects": [
+      {
+        "_id":  "on",
+        "type": "state",
+        "common": {
+          "name": "Is TV is ON",
+          "role": "indicator.online",
+          "type": "string",
+          "read": true,
+          "write": false
+        },
+        "native": {}
+      },
+      {
+        "_id":  "popup",
+        "type": "state",
+        "common": {
+          "name": "Show popup text on TV",
+          "role": "state",
+          "type": "string",
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      },
+      {
+        "_id":  "turnOff",
+        "type": "state",
+        "common": {
+          "name": "Switch TV OFF",
+          "role": "button",
+          "type": "boolean",
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      },
+      {
+        "_id":  "mute",
+        "type": "state",
+        "common": {
+          "name": "Mute ON/OFF",
+          "role": "switch",
+          "type": "boolean",
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      },
+      {
+        "_id":  "volumeUp",
+        "type": "state",
+        "common": {
+          "name": "Volume UP",
+          "role": "button",
+          "type": "boolean",
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      },
+      {
+        "_id":  "volumeDown",
+        "type": "state",
+        "common": {
+          "name": "Volume DOWN",
+          "role": "button",
+          "type": "boolean",
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      },
+      {
+        "_id":  "3Dmode",
+        "type": "state",
+        "common": {
+          "name": "3D mode ON/OFF",
+          "role": "switch",
+          "type": "boolean",
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      },
+      {
+        "_id":    "channel",
+        "type":   "state",
+        "common": {
+          "name":   "Select channel",
+          "role":   "state",
+          "type":   "string",
+          "read":   true,
+          "write":  true
+        },
+        "native": {}
+      },
+      {
+        "_id":    "channelId",
+        "type":   "state",
+        "common": {
+          "name":   "Current channel  id",
+          "role":   "state",
+          "type":   "string",
+          "read":   true,
+          "write":  true
+        },
+        "native": {}
+      },
+      {
+        "_id":  "channelUp",
+        "type": "state",
+        "common": {
+          "name": "Channel UP",
+          "role": "button",
+          "type": "boolean",
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      },
+      {
+        "_id":  "channelDown",
+        "type": "state",
+        "common": {
+          "name": "Channel DOWN",
+          "role": "button",
+          "type": "boolean",
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      },
+      {
+        "_id":    "volume",
+        "type":   "state",
+        "common": {
+          "name":   "Current volume",
+          "role":   "state",
+          "type":   "string",
+          "read":   true,
+          "write":  true
+        },
+        "native": {}
+      },
+      {
+        "_id":  "input",
+        "type": "state",
+        "common": {
+          "name": "Select input source",
+          "role": "state",
+          "type": "string",
+          "states": {
+            "AV_1": "AV_1",
+            "SCART_1": "Scart",
+            "COMP_1": "Component",
+            "HDMI_1": "HDMI 1",
+            "HDMI_2": "HDMI 2",
+            "HDMI_3": "HDMI 3"
+          },
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      },
+      {
+        "_id":    "currentApp",
+        "type":   "state",
+        "common": {
+          "name":   "current app",
+          "role":   "state",
+          "type":   "string",
+          "read":   true,
+          "write":  true
+        },
+        "native": {}
+      },	  
+      {
+        "_id":  "launch",
+        "type": "state",
+        "common": {
+          "name": "Launch app",
+          "role": "state",
+          "type": "string",
+          "states": {
+            "livetv": "LiveTV",
+            "smartshare": "Smart share",
+            "tvuserguide": "TV User Guide",
+            "netflix": "Netflix",
+            "youtube": "You tube",
+			"prime": "Amazon Prime",
+			"amazon": "Amazon Prime Video"
+          },
+          "read": false,
+          "write": true
+        },
+        "native": {}
+      }
+    ]
+}
