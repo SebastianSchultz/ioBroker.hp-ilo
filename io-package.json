@@ -23,26 +23,18 @@
     "native": {
         "ip":       "",
 		"username":  "Administrator",
-        "password": ""
+        "password": "",
+		"pushover": false,
+		"pushover_instance": "",
+		"telegram": false,
+		"telegram_instance": "",
+		"email": false,
+		"email_instance": ""
     },
     "objects": [
 
     ],
     "authors": [
 	    "SebastianSchultz <mail@sebastian-schultz.de>"
-    ],
-    "instanceObjects": [
-      {
-        "_id":  "connected_to_ILO",
-        "type": "state",
-        "common": {
-          "name": "If connected to ILO",
-          "role": "indicator.online",
-          "type": "boolean",
-          "read": true,
-          "write": false
-        },
-        "native": {}
-      }
     ]
 }
