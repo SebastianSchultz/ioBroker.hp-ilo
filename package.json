@@ -59,6 +59,18 @@
         "type": "remote"
       },
       "C:\\ioBroker\\node_modules\\iobroker"
+    ],
+    [
+      {
+        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+        "type": "remote"
+      },
+      "C:\\ioBroker\\node_modules\\iobroker"
     ]
   ],
   "_from": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
@@ -106,7 +118,9 @@
       "email": "mail@sebastian-schultz.de"
     }
   ],
-  "dependencies": {},
+  "dependencies": {
+    "request": "^2.83.0",
+  },
   "description": "ioBroker HP ILO Adapter",
   "devDependencies": {
     "grunt": "^0.4.5",
