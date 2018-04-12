@@ -112,7 +112,6 @@ function Read_ILO()
 			{
 				adapter.log.debug('Current Reading > 0');
 				adapter.setState('temperatures.' + temp.Name.replace(/ /g, '_'), temp.CurrentReading, true);
-				adapter.setState("temperatures." + temp.Name.replace(/ /g, '_') + "_max", Math.round(temp.CurrentReading + 10), true);
 				Send_Notification(temp);
 			}
         }
@@ -191,12 +190,14 @@ function Send_Notification(temp)
 			var max = state.val;
 			var aktuell = temp.CurrentReading;
 			adapter.log.debug('State "temperatures.' + temp.Name.replace(/ /g, '_') + '_max' + '" for notification. Actual Value: ' + aktuell +  ',  Max Value: ' + max);
-			if (aktuell > max.val)
+			if (aktuell > max)
 			{
+				adapter.log.debug('Limit reached for State "temperatures.' + temp.Name.replace(/ /g, '_') + '_max' + '" for notification. Actual Value: ' + aktuell +  ',  Max Value: ' + max);
 				ErrorCount++;
 				if (SendToPushover === true & PushoverNotificationSent === false)
 				{
-					sendTo(PushoverInstance, {
+					adapter.log.debug('Starting pushover notification...');
+					adapter.sendTo(PushoverInstance, {
 						message: "Aktuelle Temperatur " + temp.Name + " = " + aktuell + " Grad Celsius.",
 						title: "ILO Temperatur Warnung!",
 						priority: 0
@@ -206,7 +207,8 @@ function Send_Notification(temp)
 
 				if (SendToTelegram === true & TelegramNotificationSent === false)
 				{
-					sendTo(TelegramInstance, "send", {
+					adapter.log.debug('Starting telegram notification...');
+					adapter.sendTo(TelegramInstance, "send", {
 						text: ("ILO Temperatur Warnung!! Aktuelle Temperatur " + temp.Name + " = " + aktuell + " Grad Celsius.")
 					});
 					TelegramNotificationSent = true;
@@ -214,7 +216,8 @@ function Send_Notification(temp)
 
 				if (SendToEmail === true & EmailNotificationSent === false)
 				{
-					sendTo(EmailInstance, {
+					adapter.log.debug('Starting email notification...');
+					adapter.sendTo(EmailInstance, {
 						to:      EmailRecipient,
 						subject: "ILO Temperatur Warnung!!",
 						text:    "Aktuelle Temperatur " + temp.Name + " = " + aktuell + " Grad Celsius."
