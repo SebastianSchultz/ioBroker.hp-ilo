@@ -8,7 +8,7 @@
 [![NPM](https://nodei.co/npm/iobroker.hp-ilo.png?downloads=true)](https://nodei.co/npm/iobroker.hp-ilo/)
 
 
-#HP ILO adapter for ioBroker
+# HP ILO adapter for ioBroker
 
 Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO) into [ioBroker](https://www.iobroker.net).
 
