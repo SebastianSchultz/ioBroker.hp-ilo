@@ -142,7 +142,9 @@
       "email": "mail@sebastian-schultz.de"
     }
   ],
-  "dependencies": {},
+  "dependencies": {
+    "request": "^1.0.0"
+  },
   "description": "ioBroker HP ILO Adapter",
   "devDependencies": {
     "chai": "^3.4.1",
