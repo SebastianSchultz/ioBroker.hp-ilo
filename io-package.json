@@ -1,7 +1,9 @@
 {
     "common": {
         "name":                     "hp-ilo",
-	"author": 		    "SebastianSchultz <mail@sebastian-schultz.de>",	    
+        "authors": [
+            "Sebastian Schultz <mail@sebastian-schultz.de>"
+	],    
         "version":                  "1.0.0",
         "title":                    "HP ILO Adapter",
         "desc":                     {
