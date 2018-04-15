@@ -1,0 +1,159 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\ioBroker\\node_modules\\iobroker.hp-ilo',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\Administrator.HOME\AppData\Roaming\npm-cache\iobroker.hp-ilo\1.0.0\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\Administrator.HOME\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle iobroker.hp-ilo@1.0.0~prepublish: iobroker.hp-ilo@1.0.0
+11 silly lifecycle iobroker.hp-ilo@1.0.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ 'C:\\Users\\Administrator.HOME\\AppData\\Roaming\\npm-cache\\iobroker.hp-ilo\\1.0.0\\package.tgz',
+12 verbose tar pack   'C:\\ioBroker\\node_modules\\iobroker.hp-ilo' ]
+13 verbose tarball C:\Users\Administrator.HOME\AppData\Roaming\npm-cache\iobroker.hp-ilo\1.0.0\package.tgz
+14 verbose folder C:\ioBroker\node_modules\iobroker.hp-ilo
+15 verbose addLocalTarball adding from inside cache C:\Users\Administrator.HOME\AppData\Roaming\npm-cache\iobroker.hp-ilo\1.0.0\package.tgz
+16 verbose correctMkdir C:\Users\Administrator.HOME\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 silly cache afterAdd iobroker.hp-ilo@1.0.0
+18 verbose afterAdd C:\Users\Administrator.HOME\AppData\Roaming\npm-cache\iobroker.hp-ilo\1.0.0\package\package.json not in flight; writing
+19 verbose correctMkdir C:\Users\Administrator.HOME\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+20 verbose afterAdd C:\Users\Administrator.HOME\AppData\Roaming\npm-cache\iobroker.hp-ilo\1.0.0\package\package.json written
+21 silly publish { _args:
+21 silly publish    [ [ [Object], 'C:\\ioBroker\\node_modules\\iobroker' ],
+21 silly publish      [ [Object], 'C:\\ioBroker\\node_modules\\iobroker' ],
+21 silly publish      [ [Object], 'C:\\ioBroker\\node_modules\\iobroker' ],
+21 silly publish      [ [Object], 'C:\\ioBroker\\node_modules\\iobroker' ],
+21 silly publish      [ [Object], 'C:\\ioBroker\\node_modules\\iobroker' ],
+21 silly publish      [ [Object], 'C:\\ioBroker\\node_modules\\iobroker' ],
+21 silly publish      [ [Object], 'C:\\ioBroker\\node_modules\\iobroker' ],
+21 silly publish      [ [Object], 'C:\\ioBroker\\node_modules\\iobroker' ] ],
+21 silly publish   _from: '.',
+21 silly publish   _id: 'iobroker.hp-ilo@1.0.0',
+21 silly publish   _inCache: true,
+21 silly publish   _location: '/iobroker.hp-ilo',
+21 silly publish   _nodeVersion: '4.5.0',
+21 silly publish   _npmOperationalInternal:
+21 silly publish    { host: 'packages-16-east.internal.npmjs.com',
+21 silly publish      tmp: 'tmp/iobroker.hp-ilo-1.0.0.tgz_1473878627042_0.5250728745013475' },
+21 silly publish   _npmUser: { name: 'sebastianschultz', email: 'mail@sebastian-schultz.de' },
+21 silly publish   _npmVersion: '2.15.9',
+21 silly publish   _phantomChildren: {},
+21 silly publish   _requested:
+21 silly publish    { raw: 'https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master',
+21 silly publish      scope: null,
+21 silly publish      escapedName: null,
+21 silly publish      name: null,
+21 silly publish      rawSpec: 'https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master',
+21 silly publish      spec: 'https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master',
+21 silly publish      type: 'remote' },
+21 silly publish   _requiredBy: [ '#USER' ],
+21 silly publish   _resolved: 'https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master',
+21 silly publish   _shasum: '4ba120cc9c482cbdbb64f5cedaa84e587bb04fc1',
+21 silly publish   _shrinkwrap: null,
+21 silly publish   _spec: 'https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master',
+21 silly publish   _where: 'C:\\ioBroker\\node_modules\\iobroker',
+21 silly publish   author:
+21 silly publish    { name: 'Sebastian Schultz',
+21 silly publish      email: 'mail@sebastian-schultz.de' },
+21 silly publish   bugs: { url: 'https://github.com/SebastianSchultz/iobroker.hp-ilo/issues' },
+21 silly publish   contributors:
+21 silly publish    [ { name: 'Sebastian Schultz',
+21 silly publish        email: 'mail@sebastian-schultz.de' } ],
+21 silly publish   dependencies: {},
+21 silly publish   description: 'ioBroker HP ILO Adapter',
+21 silly publish   devDependencies:
+21 silly publish    { chai: '^3.4.1',
+21 silly publish      grunt: '^0.4.5',
+21 silly publish      'grunt-contrib-jshint': '^0.11.2',
+21 silly publish      'grunt-http': '^1.6.0',
+21 silly publish      'grunt-jscs': '^2.0.0',
+21 silly publish      'grunt-replace': '^0.9.3',
+21 silly publish      mocha: '^2.3.4' },
+21 silly publish   directories: {},
+21 silly publish   dist:
+21 silly publish    { shasum: '52d9bfcc96e56fbd4b7023c5722ec4b5f0c40871',
+21 silly publish      tarball: 'https://registry.npmjs.org/iobroker.hp-ilo/-/iobroker.hp-ilo-1.0.0.tgz' },
+21 silly publish   homepage: 'https://github.com/SebastianSchultz/iobroker.hp-ilo',
+21 silly publish   keywords: [ 'ioBroker', 'hp-ilo', 'Smart Home', 'home automation' ],
+21 silly publish   license: 'MIT',
+21 silly publish   maintainers: [ { name: 'sebastianschultz', email: 'mail@sebastian-schultz.de' } ],
+21 silly publish   name: 'iobroker.hp-ilo',
+21 silly publish   optionalDependencies: {},
+21 silly publish   readme: '![Logo](admin/hp-ilo.png)\n# ioBroker.hp-ilo\n=================\n\n[![NPM version](http://img.shields.io/npm/v/iobroker.hp-ilo.svg)](https://www.npmjs.com/package/iobroker.hp-ilo)\n[![Downloads](https://img.shields.io/npm/dm/iobroker.hp-ilo.svg)](https://www.npmjs.com/package/iobroker.hp-ilo)\n\n[![NPM](https://nodei.co/npm/iobroker.hp-ilo.png?downloads=true)](https://nodei.co/npm/iobroker.hp-ilo/)\n\n\n#LG WebOS SmartTV adapter for ioBroker\n\nRemote controlling an LG WebOS SmartTV (2013 models and higher) from [ioBroker](https://www.iobroker.net).\n\n\n---\n\n\n\n\n## Some examples:\n```setState(\'lgtv.0.popup\', \'Some text!\');```\n\nThis will show a popup with the text "Some text!" on the TV.\nYou can use HTML linebreaks (br) in the text.\n\n\n```setState(\'lgtv.0.turnOff\', true);```\n\nSwitching off the TV.\n\n\n```setState(\'lgtv.0.mute\', true);```\n\nMute the TV.\n\n```setState(\'lgtv.0.mute\', false);```\n\nUnmute the TV.\n\n\n```setState(\'lgtv.0.volumeUp\', true);```\n\nThis will increase the volume of the TV.\n\n```setState(\'lgtv.0.volumeDown\', true);```\n\nDecreasing the volume of the TV.\n\n\n```setState(\'lgtv.0.3Dmode\', true);```\n\nActivates the 3D mode on the TV\n\n```setState(\'lgtv.0.3Dmode\', false);```\n\nDeactivates the 3D mode on the TV.\n\n\n```setState(\'lgtv.0.channel\', \'7\');```\n```setState(\'lgtv.0.channel\', 7);```\n\nSwitching the live TV to channel number 7.\n\n\n```setState(\'lgtv.0.launch\', \'livetv\');```\n\nSwitching to Live TV mode.\n\n```setState(\'lgtv.0.launch\', \'smartshare\');```\n\nOpening the SmartShare App on the TV.\n\n```setState(\'lgtv.0.launch\', \'tvuserguide\');```\n\nRuns the TV User Guide App on the TV.\n\n```setState(\'lgtv.0.launch\', \'netflix\');```\n\nOpening the Netflix App on the TV.\n\n```setState(\'lgtv.0.launch\', \'youtube\');```\n\nOpens the Youtube App on the TV.\n\n```setState(\'lgtv.0.launch\', \'prime\');```\n\nOpens the Amazon Prime App on the TV.\n\n```setState(\'lgtv.0.launch\', \'http://www.iobroker.net\');```\n\nOpens the Webbrowser on the TV and navigates to www.iobroker.net.\n\n```setState(\'lgtv.0.input\', \'AV_1\');```\n\nSwitches the iput oh the TV to AV1.\n\n```setState(\'lgtv.0.input\', \'SCART_1\');```\n\nSwitches the iput oh the TV to Scart.\n\n```setState(\'lgtv.0.input\', \'COMP_1\');```\n\nSwitches the iput oh the TV to Component.\n\n```setState(\'lgtv.0.input\', \'HDMI_1\');```\n\nSwitches the iput oh the TV to HDMI 1.\n\n```setState(\'lgtv.0.input\', \'HDMI_2\');```\n\nSwitches the iput oh the TV to HDMI 2.\n\n```setState(\'lgtv.0.input\', \'HDMI_3\');```\n\nSwitches the iput oh the TV to HDMI 3.\n\n\n---\n\n## States\n\nchannel - holds the current chanel\non - is true when TV is on and false if TV is off\n\n---\n\n\n## Changelog\n\n### 1.0.2 (2017-05-23)\n* (SMundt) added support for launching Amazon Prime app\n### 1.0.0 (2016-09-26)\n* (SMundt) added channel polling\n* (SMundt) added switching input\n\n### 0.0.4 (2016-09-12)\n* (SMundt) solved saving IP address within adapter configuration\n\n### 0.0.3 (2016-09-05)\n* (SMundt) added volumeUp true|false\n* (SMundt) added volumeDown true|false\n* (SMundt) added 3Dmode true|false\n* (SMundt) added launch livetv|smartshare|tvuserguide|netflix|youtube|<URL>\n* (SMundt) added channel <channelNumber>\n* (SMundt) some code cleaned\n\n### 0.0.2 (2016-09-02)\n* (SMundt) removed reconnect function, not used\n* (SMundt) improved error handling and logging\n\n### 0.0.1 (2016-08-31)\n* (SMundt) initial commit\n\n\n---\n\n\n## License\n\nThe MIT License (MIT)\n\nCopyright (c) 2016 SMundt\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   main: 'hp-ilo.js',
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/SebastianSchultz/iobroker.hp-ilo.git' },
+21 silly publish   scripts: { test: 'node node_modules/mocha/bin/mocha' },
+21 silly publish   version: '1.0.0' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name iobroker.hp-ilo
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'iobroker.hp-ilo',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'iobroker.hp-ilo',
+26 silly mapToRegistry   name: 'iobroker.hp-ilo',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/iobroker.hp-ilo
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading C:\Users\Administrator.HOME\AppData\Roaming\npm-cache\iobroker.hp-ilo\1.0.0\package.tgz
+30 verbose request uri https://registry.npmjs.org/iobroker.hp-ilo
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 12:00:28
+33 verbose request using bearer token for auth
+34 verbose request id c024e6ddb28ae95c
+35 http request PUT https://registry.npmjs.org/iobroker.hp-ilo
+36 http 403 https://registry.npmjs.org/iobroker.hp-ilo
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '93',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Sun, 15 Apr 2018 10:02:17 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-fra19139-FRA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1523786537.094921,VS0,VE806',
+37 verbose headers   vary: 'Accept-Encoding, Accept' }
+38 verbose request invalidating C:\Users\Administrator.HOME\AppData\Roaming\npm-cache\registry.npmjs.org\iobroker.hp-ilo on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: You cannot publish over the previously published versions: 1.0.0. : iobroker.hp-ilo
+40 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:290:14)
+40 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:210:14)
+40 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:969:12)
+41 verbose statusCode 403
+42 verbose pkgid iobroker.hp-ilo
+43 verbose cwd C:\ioBroker\node_modules\iobroker.hp-ilo
+44 error Windows_NT 6.3.9600
+45 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+46 error node v6.11.1
+47 error npm  v3.10.10
+48 error code E403
+49 error You cannot publish over the previously published versions: 1.0.0. : iobroker.hp-ilo
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
