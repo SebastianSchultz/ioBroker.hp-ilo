@@ -7,9 +7,11 @@ var child_process = require('child_process');
 var rootDir       = path.normalize(__dirname + '/../../');
 var pkg           = require(rootDir + 'package.json');
 var debug         = typeof v8debug === 'object';
+pkg.main = pkg.main || 'main.js';
 
 var adapterName = path.normalize(rootDir).replace(/\\/g, '/').split('/');
 adapterName = adapterName[adapterName.length - 2];
+var adapterStarted = false;
 
 function getAppName() {
     var parts = __dirname.replace(/\\/g, '/').split('/');
@@ -90,8 +92,13 @@ function storeOriginalFiles() {
     }
 
     fs.writeFileSync(dataDir + 'objects.json.original', JSON.stringify(objects));
-    f = fs.readFileSync(dataDir + 'states.json');
-    fs.writeFileSync(dataDir + 'states.json.original', f);
+    try {
+        f = fs.readFileSync(dataDir + 'states.json');
+        fs.writeFileSync(dataDir + 'states.json.original', f);
+    }
+    catch (err) {
+        console.log('no states.json found - ignore');
+    }
 }
 
 function restoreOriginalFiles() {
@@ -100,11 +107,18 @@ function restoreOriginalFiles() {
 
     var f = fs.readFileSync(dataDir + 'objects.json.original');
     fs.writeFileSync(dataDir + 'objects.json', f);
-    f = fs.readFileSync(dataDir + 'states.json.original');
-    fs.writeFileSync(dataDir + 'states.json', f);
+    try {
+        f = fs.readFileSync(dataDir + 'states.json.original');
+        fs.writeFileSync(dataDir + 'states.json', f);
+    }
+    catch (err) {
+        console.log('no states.json.original found - ignore');
+    }
+
 }
 
-function checkIsAdapterInstalled(cb, counter) {
+function checkIsAdapterInstalled(cb, counter, customName) {
+    customName = customName || pkg.name.split('.').pop();
     counter = counter || 0;
     var dataDir = rootDir + 'tmp/' + appName + '-data/';
     console.log('checkIsAdapterInstalled...');
@@ -112,7 +126,7 @@ function checkIsAdapterInstalled(cb, counter) {
     try {
         var f = fs.readFileSync(dataDir + 'objects.json');
         var objects = JSON.parse(f.toString());
-        if (objects['system.adapter.' + pkg.name.split('.').pop() + '.0']) {
+        if (objects['system.adapter.' + customName + '.0']) {
             console.log('checkIsAdapterInstalled: ready!');
             setTimeout(function () {
                 if (cb) cb();
@@ -166,12 +180,17 @@ function checkIsControllerInstalled(cb, counter) {
     }
 }
 
-function installAdapter(cb) {
+function installAdapter(customName, cb) {
+    if (typeof customName === 'function') {
+        cb = customName;
+        customName = null;
+    }
+    customName = customName || pkg.name.split('.').pop();
     console.log('Install adapter...');
     var startFile = 'node_modules/' + appName + '.js-controller/' + appName + '.js';
     // make first install
     if (debug) {
-        child_process.execSync('node ' + startFile + ' add ' + pkg.name.split('.').pop() + ' --enabled false', {
+        child_process.execSync('node ' + startFile + ' add ' + customName + ' --enabled false', {
             cwd:   rootDir + 'tmp',
             stdio: [0, 1, 2]
         });
@@ -182,7 +201,7 @@ function installAdapter(cb) {
         });
     } else {
         // add controller
-        var _pid = child_process.fork(startFile, ['add', pkg.name.split('.').pop(), '--enabled', 'false'], {
+        var _pid = child_process.fork(startFile, ['add', customName, '--enabled', 'false'], {
             cwd:   rootDir + 'tmp',
             stdio: [0, 1, 2, 'ipc']
         });
@@ -432,18 +451,24 @@ function setupController(cb) {
 }
 
 function startAdapter(objects, states, callback) {
+    if (adapterStarted) {
+        console.log('Adapter already started ...');
+        if (callback) callback(objects, states);
+        return;
+    }
+    adapterStarted = true;
     console.log('startAdapter...');
     if (fs.existsSync(rootDir + 'tmp/node_modules/' + pkg.name + '/' + pkg.main)) {
         try {
             if (debug) {
                 // start controller
-                pid = child_process.exec('node node_modules/' + pkg.name + '/' + pkg.main + ' --console debug', {
+                pid = child_process.exec('node node_modules/' + pkg.name + '/' + pkg.main + ' --console silly', {
                     cwd: rootDir + 'tmp',
                     stdio: [0, 1, 2]
                 });
             } else {
                 // start controller
-                pid = child_process.fork('node_modules/' + pkg.name + '/' + pkg.main, ['--console', 'debug'], {
+                pid = child_process.fork('node_modules/' + pkg.name + '/' + pkg.main, ['--console', 'silly'], {
                     cwd:   rootDir + 'tmp',
                     stdio: [0, 1, 2, 'ipc']
                 });
@@ -459,6 +484,8 @@ function startAdapter(objects, states, callback) {
 
 function startController(isStartAdapter, onObjectChange, onStateChange, callback) {
     if (typeof isStartAdapter === 'function') {
+        callback = onStateChange;
+        onStateChange = onObjectChange;
         onObjectChange = isStartAdapter;
         isStartAdapter = true;
     }
@@ -472,6 +499,7 @@ function startController(isStartAdapter, onObjectChange, onStateChange, callback
         console.error('Controller is already started!');
     } else {
         console.log('startController...');
+        adapterStarted = false;
         var isObjectConnected;
         var isStatesConnected;
 
@@ -487,6 +515,9 @@ function startController(isStartAdapter, onObjectChange, onStateChange, callback
                 "connectTimeout": 2000
             },
             logger: {
+                silly: function (msg) {
+                    console.log(msg);
+                },
                 debug: function (msg) {
                     console.log(msg);
                 },
@@ -527,9 +558,14 @@ function startController(isStartAdapter, onObjectChange, onStateChange, callback
                 }
             },
             logger: {
+                silly: function (msg) {
+                    console.log(msg);
+                },
                 debug: function (msg) {
+                    console.log(msg);
                 },
                 info: function (msg) {
+                    console.log(msg);
                 },
                 warn: function (msg) {
                     console.log(msg);
@@ -559,6 +595,7 @@ function stopAdapter(cb) {
             }, 0);
         }
     } else {
+        adapterStarted = false;
         pid.on('exit', function (code, signal) {
             if (pid) {
                 console.log('child process terminated due to receipt of signal ' + signal);
@@ -652,6 +689,8 @@ if (typeof module !== undefined && module.parent) {
     module.exports.setupController  = setupController;
     module.exports.stopAdapter      = stopAdapter;
     module.exports.startAdapter     = startAdapter;
+    module.exports.installAdapter   = installAdapter;
     module.exports.appName          = appName;
     module.exports.adapterName      = adapterName;
+    module.exports.adapterStarted   = adapterStarted;
 }
