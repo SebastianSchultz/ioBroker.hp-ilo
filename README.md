@@ -12,6 +12,7 @@
 
 Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO) into [ioBroker](https://www.iobroker.net).
 
+Supporting ILO interfaces from V2 upwards.
 
 ---
 
@@ -24,7 +25,10 @@ Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (IL
 
 ## Changelog
 
-### 0.0.1 (2016-08-31)
+### 1.0.01 (2018-04-15)
+* (SebastianSchultz) First release
+
+### 0.0.1 (2018-04-01)
 * (SebastianSchultz) initial commit
 
 

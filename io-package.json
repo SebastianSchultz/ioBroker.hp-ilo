@@ -1,7 +1,7 @@
 {
     "common": {
         "name":                     "hp-ilo",
-        "version":                  "0.0.1",
+        "version":                  "1.0.0",
         "title":                    "HP ILO Adapter",
         "desc":                     {
  			             "en": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)",

@@ -83,6 +83,18 @@
         "type": "remote"
       },
       "C:\\ioBroker\\node_modules\\iobroker"
+    ],
+    [
+      {
+        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+        "type": "remote"
+      },
+      "C:\\ioBroker\\node_modules\\iobroker"
     ]
   ],
   "_from": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
@@ -92,7 +104,7 @@
   "_nodeVersion": "4.5.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/iobroker.hp-ilo-0.0.1.tgz_1473878627042_0.5250728745013475"
+    "tmp": "tmp/iobroker.hp-ilo-1.0.0.tgz_1473878627042_0.5250728745013475"
   },
   "_npmUser": {
     "name": "sebastianschultz",
@@ -130,20 +142,21 @@
       "email": "mail@sebastian-schultz.de"
     }
   ],
+  "dependencies": {},
   "description": "ioBroker HP ILO Adapter",
   "devDependencies": {
+    "chai": "^3.4.1",
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-http": "^1.6.0",
     "grunt-jscs": "^2.0.0",
     "grunt-replace": "^0.9.3",
-    "mocha": "^2.3.4",
-    "chai": "^3.4.1"
+    "mocha": "^2.3.4"
   },
   "directories": {},
   "dist": {
     "shasum": "52d9bfcc96e56fbd4b7023c5722ec4b5f0c40871",
-    "tarball": "https://registry.npmjs.org/iobroker.hp-ilo/-/iobroker.hp-ilo-0.0.1.tgz"
+    "tarball": "https://registry.npmjs.org/iobroker.hp-ilo/-/iobroker.hp-ilo-1.0.0.tgz"
   },
   "homepage": "https://github.com/SebastianSchultz/iobroker.hp-ilo",
   "keywords": [
@@ -170,5 +183,5 @@
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
   },
-  "version": "1.0.4"
+  "version": "1.0.0"
 }
