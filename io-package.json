@@ -4,7 +4,7 @@
         "authors": [
             "Sebastian Schultz <mail@sebastian-schultz.de>"
 	],    
-        "version":                  "1.0.0",
+        "version":                  "1.0.1",
         "title":                    "HP ILO Adapter",
         "desc":                     {
  			             "en": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)",
@@ -21,7 +21,8 @@
 	    "keywords":                 ["hp-ilo", "HP", "Hewlett-Packard", "Hewlett", "Packard", "ILO", "Integrated", "Lights-out"],
         "readme":                   "https://github.com/SebastianSchultz/iobroker.hp-ilo/blob/master/README.md",
 	    "loglevel":                 "info",
-        "type":                     "hardware"
+        "type":                     "hardware",
+		"compact":					true
     },
     "native": {
         "ip":       "",

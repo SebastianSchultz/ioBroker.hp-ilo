@@ -28,7 +28,10 @@ Supporting ILO interfaces from V2 upwards.
 
 ## Changelog
 
-### 1.0.01 (2018-04-15)
+### 1.0.1 (2019-01-21)
+* (SebastianSchultz) Added compact mode
+
+### 1.0.0 (2018-04-15)
 * (SebastianSchultz) First release
 
 ### 0.0.1 (2018-04-01)
@@ -42,7 +45,7 @@ Supporting ILO interfaces from V2 upwards.
 
 The MIT License (MIT)
 
-Copyright (c) 2018 Sebastian Schultz.
+Copyright (c) 2019 Sebastian Schultz.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
