@@ -16,6 +16,13 @@ var PushoverNotificationSent = false;
 var TelegramNotificationSent = false;
 var EmailNotificationSent = false;
 
+if (module && module.parent) {
+    module.exports = startAdapter;
+} else {
+    // or start the instance directly
+    startAdapter();
+} 
+
 function ILO_Request(url, next){
    url = "https://"+adapter.config.ip+url;
    request.timeout = 60000;
