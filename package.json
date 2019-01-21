@@ -156,7 +156,7 @@
   ],
   "dependencies": {
     "request": "^1.0.0",
-	"@iobroker/adapter-core": "^1.0.2"
+"@iobroker/adapter-core": "^1.0.2"
   },
   "description": "ioBroker HP ILO Adapter",
   "devDependencies": {
