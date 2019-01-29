@@ -1,146 +1,4 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "type": "remote"
-      },
-      "C:\\ioBroker\\node_modules\\iobroker"
-    ],
-    [
-      {
-        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "type": "remote"
-      },
-      "C:\\ioBroker\\node_modules\\iobroker"
-    ],
-    [
-      {
-        "raw": "https://github.com/SMundt/ioBroker.hp-ilo/tarball/master",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/SMundt/ioBroker.hp-ilo/tarball/master",
-        "spec": "https://github.com/SMundt/ioBroker.hp-ilo/tarball/master",
-        "type": "remote"
-      },
-      "C:\\ioBroker\\node_modules\\iobroker"
-    ],
-    [
-      {
-        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "type": "remote"
-      },
-      "C:\\ioBroker\\node_modules\\iobroker"
-    ],
-    [
-      {
-        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "type": "remote"
-      },
-      "C:\\ioBroker\\node_modules\\iobroker"
-    ],
-    [
-      {
-        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "type": "remote"
-      },
-      "C:\\ioBroker\\node_modules\\iobroker"
-    ],
-    [
-      {
-        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "type": "remote"
-      },
-      "C:\\ioBroker\\node_modules\\iobroker"
-    ],
-    [
-      {
-        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "type": "remote"
-      },
-      "C:\\ioBroker\\node_modules\\iobroker"
-    ],
-    [
-      {
-        "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-        "type": "remote"
-      },
-      "C:\\ioBroker\\node_modules\\iobroker"
-    ]
-  ],
-  "_from": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-  "_id": "iobroker.hp-ilo@1.0.1",
-  "_inCache": true,
-  "_location": "/iobroker.hp-ilo",
-  "_nodeVersion": "4.5.0",
-  "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/iobroker.hp-ilo-1.0.1.tgz_1473878627042_0.5250728745013475"
-  },
-  "_npmUser": {
-    "name": "sebastianschultz",
-    "email": "mail@sebastian-schultz.de"
-  },
-  "_npmVersion": "2.15.9",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
-    "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-    "spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-    "type": "remote"
-  },
-  "_requiredBy": [
-    "#USER"
-  ],
-  "_resolved": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-  "_shasum": "52d9bfcc96e56fbd4b7023c5722ec4b5f0c40871",
-  "_shrinkwrap": null,
-  "_spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
-  "_where": "C:\\ioBroker\\node_modules\\iobroker",
   "author": {
     "name": "Sebastian Schultz",
     "email": "mail@sebastian-schultz.de"
@@ -158,7 +16,7 @@
     "request": "^1.0.0",
 "@iobroker/adapter-core": "^1.0.2"
   },
-  "description": "ioBroker HP ILO Adapter",
+  "description": "ioBroker HP ILO",
   "devDependencies": {
     "chai": "^3.4.1",
     "grunt": "^0.4.5",
@@ -194,7 +52,7 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SebastianSchultz/iobroker.hp-ilo.git"
+    "url": "git+https://github.com/SebastianSchultz/ioBroker.hp-ilo.git"
   },
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
