@@ -5,7 +5,7 @@
             "Sebastian Schultz <mail@sebastian-schultz.de>"
 	],    
         "version":                  "1.0.1",
-        "title":                    "HP ILO Adapter",
+        "title":                    "HP ILO",
         "desc":                     {
  			             "en": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)",
  			             "de": "Liest Temperaturdaten von Hewlett-Packard Servern mit Integrated Lights-out (ILO) aus",
