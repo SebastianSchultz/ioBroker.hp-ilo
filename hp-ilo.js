@@ -1,6 +1,6 @@
 'use strict';
 var fs = require('fs');
-var utils = require(__dirname + '/lib/utils');
+var utils = require('@iobroker/adapter-core');
 var adapter = new utils.Adapter('hp-ilo');
 var request = require('request');
 var pollTimer = null;
