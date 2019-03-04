@@ -140,7 +140,8 @@
     }
   ],
   "dependencies": {
-    "request": "^1.0.0"
+    "request": "^1.0.0",
+    "@iobroker/adapter-core": "^1.0.3"
   },
   "description": "ioBroker HP ILO Adapter",
   "devDependencies": {
@@ -150,8 +151,7 @@
     "grunt-http": "^2.2.0",
     "grunt-jscs": "^3.0.1",
     "grunt-replace": "^1.0.1",
-    "mocha": "^6.0.2",
-    "@iobroker/adapter-core": "^1.0.3"
+    "mocha": "^6.0.2"
   },
   "directories": {},
   "dist": {
