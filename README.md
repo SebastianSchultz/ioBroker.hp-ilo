@@ -2,7 +2,7 @@
 # ioBroker.hp-ilo
 =================
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.hp-ilo.svg)](https://www.npmjs.com/package/iobroker.hp-ilo)
+![Number of Installations](http://iobroker.live/badges/hp-ilo-installed.svg) ![Number of Installations](http://iobroker.live/badges/hp-ilo-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.hp-ilo.svg)](https://www.npmjs.com/package/iobroker.hp-ilo)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.hp-ilo.svg)](https://www.npmjs.com/package/iobroker.hp-ilo)
 
 [![NPM](https://nodei.co/npm/iobroker.hp-ilo.png?downloads=true)](https://nodei.co/npm/iobroker.hp-ilo/)
