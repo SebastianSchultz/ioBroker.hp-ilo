@@ -1,7 +1,13 @@
+/* jshint -W097 */
+/* jshint strict:false */
+/* global require */
+/* global RRule */
+/* global __dirname */
+/* jslint node: true */
 'use strict';
 var fs = require('fs');
 var utils = require('@iobroker/adapter-core');
-var adapter = new utils.Adapter('hp-ilo');
+var adapter;
 var request = require('request');
 var pollTimer = null;
 var init = 0;
@@ -9,6 +15,13 @@ var ErrorCount = 0;
 var PushoverNotificationSent = false;
 var TelegramNotificationSent = false;
 var EmailNotificationSent = false;
+
+if (module && module.parent) {
+    module.exports = startAdapter;
+} else {
+    // or start the instance directly
+    startAdapter();
+} 
 
 function ILO_Request(url, next){
    url = "https://"+adapter.config.ip+url;
@@ -229,16 +242,29 @@ function Send_Notification(temp)
 		}
 	});
 }
-	
-adapter.on('stateChange', function (id, state)
-{
-    if (id && state && !state.ack)
-	{
-		id = id.substring(adapter.namespace.length + 1);
-	}
-});
 
-adapter.on('ready', main);
+function startAdapter(options) {
+    options = options || {};
+    Object.assign(options,{
+        name:  "hp-ilo",
+        stateChange:  function (id, state) {
+            if (id && state && !state.ack)
+			{
+				id = id.substring(adapter.namespace.length + 1);
+			}
+        },
+        unload: function (callback) {
+            callback();
+        },
+        ready: function () {
+            main();
+        }
+    });
+
+    adapter = new utils.Adapter(options);
+
+    return adapter;
+}
 
 function main() 
 {
