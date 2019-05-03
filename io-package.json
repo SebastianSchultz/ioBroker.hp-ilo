@@ -5,6 +5,16 @@
             "Sebastian Schultz <mail@sebastian-schultz.de>"
 	],    
         "version":                  "1.0.1",
+        "news": {
+            "1.0.1": {
+                "en": "Added Compact mode",
+                "de": "Compact Mode hinzugefügt",
+                "ru": "Added Compact mode",
+                "pt": "Added Compact mode",
+                "fr": "Added Compact mode",
+                "nl": "Added Compact mode"
+            }
+	},	    
         "title":                    "HP ILO",
         "desc":                     {
  			             "en": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)",
