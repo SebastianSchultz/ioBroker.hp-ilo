@@ -4,7 +4,7 @@
         "authors": [
             "Sebastian Schultz <mail@sebastian-schultz.de>"
 	],    
-        "version":                  "1.0.1",
+        "version":                  "1.0.5",
         "news": {
             "1.0.1": {
                 "en": "Added Compact mode",
