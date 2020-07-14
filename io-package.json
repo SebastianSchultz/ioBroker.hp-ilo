@@ -1,49 +1,59 @@
 {
-    "common": {
-        "name":                     "hp-ilo",
-        "authors": [
-            "Sebastian Schultz <mail@sebastian-schultz.de>"
-	],    
-        "version":                  "1.0.5",
-        "news": {
-            "1.0.1": {
-                "en": "Added Compact mode",
-                "de": "Compact Mode hinzugefügt",
-                "ru": "Added Compact mode",
-                "pt": "Added Compact mode",
-                "fr": "Added Compact mode",
-                "nl": "Added Compact mode"
-            }
-	},	    
-        "title":                    "HP ILO",
-        "desc":                     {
- 			             "en": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)",
- 			             "de": "Liest Temperaturdaten von Hewlett-Packard Servern mit Integrated Lights-out (ILO) aus",
- 			             "ru": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)"
-	    },
-	    "license":                "MIT",
-        "platform":                 "Javascript/Node.js",
-        "mode":                     "daemon",
-        "icon":                     "hp-ilo.png",
-        "enabled":                  false,
-        "materialize": 				true,
-	    "extIcon":                  "https://raw.githubusercontent.com/SebastianSchultz/ioBroker.hp-ilo/master/admin/hp-ilo.png",
-	    "keywords":                 ["hp-ilo", "HP", "Hewlett-Packard", "Hewlett", "Packard", "ILO", "Integrated", "Lights-out"],
-        "readme":                   "https://github.com/SebastianSchultz/iobroker.hp-ilo/blob/master/README.md",
-	    "loglevel":                 "info",
-        "type":                     "hardware",
-		"compact":					true
+  "common": {
+    "name": "hp-ilo",
+    "authors": [
+      "Sebastian Schultz <mail@sebastian-schultz.de>"
+    ],
+    "version": "1.0.6",
+    "news": {
+      "1.0.6": {
+        "en": "Changed test scripts",
+        "de": "Changed test scripts",
+        "ru": "Changed test scripts",
+        "pt": "Changed test scripts",
+        "fr": "Changed test scripts",
+        "nl": "Changed test scripts",
+      }
     },
-    "native": {
-        "ip":       "",
-		"username":  "Administrator",
-        "password": "",
-		"pushover": false,
-		"pushover_instance": "",
-		"telegram": false,
-		"telegram_instance": "",
-		"email": false,
-		"email_instance": "",
-		"email_recipient": ""
-    }
+    "title": "HP ILO",
+    "desc": {
+      "en": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)",
+      "de": "Liest Temperaturdaten von Hewlett-Packard Servern mit Integrated Lights-out (ILO) aus",
+      "ru": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)"
+    },
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "icon": "hp-ilo.png",
+    "enabled": false,
+    "materialize": true,
+    "extIcon": "https://raw.githubusercontent.com/SebastianSchultz/ioBroker.hp-ilo/master/admin/hp-ilo.png",
+    "keywords": [
+      "hp-ilo",
+      "HP",
+      "Hewlett-Packard",
+      "Hewlett",
+      "Packard",
+      "ILO",
+      "Integrated",
+      "Lights-out"
+    ],
+    "readme": "https://github.com/SebastianSchultz/iobroker.hp-ilo/blob/master/README.md",
+    "loglevel": "info",
+    "type": "hardware",
+    "compact": true,
+    "installedFrom": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master"
+  },
+  "native": {
+    "ip": "",
+    "username": "Administrator",
+    "password": "",
+    "pushover": false,
+    "pushover_instance": "",
+    "telegram": false,
+    "telegram_instance": "",
+    "email": false,
+    "email_instance": "",
+    "email_recipient": ""
+  }
 }

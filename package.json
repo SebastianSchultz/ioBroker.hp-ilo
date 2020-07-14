@@ -1,4 +1,25 @@
 {
+  "_from": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+  "_id": "iobroker.hp-ilo@1.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-mzIvnyH52VnEulgtwbS8R9Keq+A/4LxHQzbabRGNi/oEIGEJ8Td3FLFQoWYnmOTX172hnCHOwEVz0XlrjFZuCg==",
+  "_location": "/iobroker.hp-ilo",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+    "rawSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+    "saveSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+    "fetchSpec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+  "_shasum": "0f3118c7ef035c66bdad8b6325da0149ef07fe6c",
+  "_spec": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+  "_where": "/",
   "author": {
     "name": "Sebastian Schultz",
     "email": "mail@sebastian-schultz.de"
@@ -6,6 +27,7 @@
   "bugs": {
     "url": "https://github.com/SebastianSchultz/iobroker.hp-ilo/issues"
   },
+  "bundleDependencies": false,
   "contributors": [
     {
       "name": "Sebastian Schultz",
@@ -13,19 +35,20 @@
     }
   ],
   "dependencies": {
-    "request": "^1.0.0",
-    "@iobroker/adapter-core": "^1.0.3"
+    "@iobroker/adapter-core": "^1.0.3",
+    "request": "^1.0.0"
   },
+  "deprecated": false,
   "description": "ioBroker HP ILO",
   "devDependencies": {
+    "@iobroker/testing": "^1.1.10",
     "chai": "^4.2.0",
     "grunt": "^1.0.1",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-http": "^2.2.0",
     "grunt-jscs": "^3.0.1",
     "grunt-replace": "^1.0.1",
-    "mocha": "^6.0.2",
-    "@iobroker/testing": "^1.1.10"
+    "mocha": "^6.0.2"
   },
   "directories": {},
   "dist": {
@@ -49,18 +72,15 @@
   ],
   "name": "iobroker.hp-ilo",
   "optionalDependencies": {},
-  "readme": "![Logo](admin/hp-ilo.png)\n# ioBroker.hp-ilo\n=================\n\n[![NPM version](http://img.shields.io/npm/v/iobroker.hp-ilo.svg)](https://www.npmjs.com/package/iobroker.hp-ilo)\n[![Downloads](https://img.shields.io/npm/dm/iobroker.hp-ilo.svg)](https://www.npmjs.com/package/iobroker.hp-ilo)\n\n[![NPM](https://nodei.co/npm/iobroker.hp-ilo.png?downloads=true)](https://nodei.co/npm/iobroker.hp-ilo/)\n\n\n#LG WebOS SmartTV adapter for ioBroker\n\nRemote controlling an LG WebOS SmartTV (2013 models and higher) from [ioBroker](https://www.iobroker.net).\n\n\n---\n\n\n\n\n## Some examples:\n```setState('lgtv.0.popup', 'Some text!');```\n\nThis will show a popup with the text \"Some text!\" on the TV.\nYou can use HTML linebreaks (br) in the text.\n\n\n```setState('lgtv.0.turnOff', true);```\n\nSwitching off the TV.\n\n\n```setState('lgtv.0.mute', true);```\n\nMute the TV.\n\n```setState('lgtv.0.mute', false);```\n\nUnmute the TV.\n\n\n```setState('lgtv.0.volumeUp', true);```\n\nThis will increase the volume of the TV.\n\n```setState('lgtv.0.volumeDown', true);```\n\nDecreasing the volume of the TV.\n\n\n```setState('lgtv.0.3Dmode', true);```\n\nActivates the 3D mode on the TV\n\n```setState('lgtv.0.3Dmode', false);```\n\nDeactivates the 3D mode on the TV.\n\n\n```setState('lgtv.0.channel', '7');```\n```setState('lgtv.0.channel', 7);```\n\nSwitching the live TV to channel number 7.\n\n\n```setState('lgtv.0.launch', 'livetv');```\n\nSwitching to Live TV mode.\n\n```setState('lgtv.0.launch', 'smartshare');```\n\nOpening the SmartShare App on the TV.\n\n```setState('lgtv.0.launch', 'tvuserguide');```\n\nRuns the TV User Guide App on the TV.\n\n```setState('lgtv.0.launch', 'netflix');```\n\nOpening the Netflix App on the TV.\n\n```setState('lgtv.0.launch', 'youtube');```\n\nOpens the Youtube App on the TV.\n\n```setState('lgtv.0.launch', 'prime');```\n\nOpens the Amazon Prime App on the TV.\n\n```setState('lgtv.0.launch', 'http://www.iobroker.net');```\n\nOpens the Webbrowser on the TV and navigates to www.iobroker.net.\n\n```setState('lgtv.0.input', 'AV_1');```\n\nSwitches the iput oh the TV to AV1.\n\n```setState('lgtv.0.input', 'SCART_1');```\n\nSwitches the iput oh the TV to Scart.\n\n```setState('lgtv.0.input', 'COMP_1');```\n\nSwitches the iput oh the TV to Component.\n\n```setState('lgtv.0.input', 'HDMI_1');```\n\nSwitches the iput oh the TV to HDMI 1.\n\n```setState('lgtv.0.input', 'HDMI_2');```\n\nSwitches the iput oh the TV to HDMI 2.\n\n```setState('lgtv.0.input', 'HDMI_3');```\n\nSwitches the iput oh the TV to HDMI 3.\n\n\n---\n\n## States\n\nchannel - holds the current chanel\non - is true when TV is on and false if TV is off\n\n---\n\n\n## Changelog\n\n### 1.0.2 (2017-05-23)\n* (SMundt) added support for launching Amazon Prime app\n### 1.0.0 (2016-09-26)\n* (SMundt) added channel polling\n* (SMundt) added switching input\n\n### 0.0.4 (2016-09-12)\n* (SMundt) solved saving IP address within adapter configuration\n\n### 0.0.3 (2016-09-05)\n* (SMundt) added volumeUp true|false\n* (SMundt) added volumeDown true|false\n* (SMundt) added 3Dmode true|false\n* (SMundt) added launch livetv|smartshare|tvuserguide|netflix|youtube|<URL>\n* (SMundt) added channel <channelNumber>\n* (SMundt) some code cleaned\n\n### 0.0.2 (2016-09-02)\n* (SMundt) removed reconnect function, not used\n* (SMundt) improved error handling and logging\n\n### 0.0.1 (2016-08-31)\n* (SMundt) initial commit\n\n\n---\n\n\n## License\n\nThe MIT License (MIT)\n\nCopyright (c) 2016 SMundt\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n",
-  "readmeFilename": "README.md",
-  "main": "hp-ilo.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SebastianSchultz/ioBroker.hp-ilo.git"
   },
   "scripts": {
     "test": "npm run test:package && npm run test:unit",
+    "test:integration": "mocha test/integration --exit",
     "test:package": "mocha test/package --exit",
-    "test:unit": "mocha test/unit --exit",
-    "test:integration": "mocha test/integration --exit"
+    "test:unit": "mocha test/unit --exit"
   },
-  "version": "1.0.5"
+  "version": "1.0.6"
 }
