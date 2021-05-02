@@ -65,7 +65,7 @@ function Read_ILO()
 				type: "string",
 				role: "state",
 				read: true,
-				write: false
+				write: true
 			},
 			native: {}
 			});		
@@ -78,7 +78,7 @@ function Read_ILO()
                 type: 'number', 
                 def:  0,
                 read: true,
-                write: false,
+                write: true,
                 role: 'state'  
 			});         
         }
@@ -94,7 +94,7 @@ function Read_ILO()
 					type: 'number', 
 					def:  0,
 					read: true,
-					write: false,
+					write: true,
 					role: 'state'  
 				});  
             
