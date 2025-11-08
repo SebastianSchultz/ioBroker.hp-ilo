@@ -21,7 +21,10 @@
       "de": "Liest Temperaturdaten von Hewlett-Packard Servern mit Integrated Lights-out (ILO) aus",
       "ru": "Reads temperature data of Hewlett-Packard servers with Integrated Lights-out (ILO)"
     },
-    "license": "MIT",
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
     "platform": "Javascript/Node.js",
     "mode": "daemon",
     "icon": "hp-ilo.png",
