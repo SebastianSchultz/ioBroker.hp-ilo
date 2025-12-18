@@ -41,8 +41,7 @@
     "readme": "https://github.com/SebastianSchultz/iobroker.hp-ilo/blob/master/README.md",
     "loglevel": "info",
     "type": "hardware",
-    "compact": true,
-    "installedFrom": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master"
+    "compact": true
   },
   "native": {
     "ip": "",
