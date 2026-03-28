@@ -5,7 +5,7 @@
 /* global __dirname */
 /* jslint node: true */
 'use strict';
-var fs = require('fs');
+var fs = require('node:fs');
 var utils = require('@iobroker/adapter-core');
 var adapter;
 var request = require('request');
