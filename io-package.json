@@ -42,7 +42,12 @@
     "loglevel": "info",
     "type": "hardware",
     "compact": true,
-    "installedFrom": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master"
+    "installedFrom": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ]
   },
   "native": {
     "ip": "",
