@@ -26,7 +26,6 @@
     "mode": "daemon",
     "icon": "hp-ilo.png",
     "enabled": false,
-    "materialize": true,
     "extIcon": "https://raw.githubusercontent.com/SebastianSchultz/ioBroker.hp-ilo/master/admin/hp-ilo.png",
     "keywords": [
       "hp-ilo",
@@ -42,7 +41,15 @@
     "loglevel": "info",
     "type": "hardware",
     "compact": true,
-    "installedFrom": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master"
+    "installedFrom": "https://github.com/SebastianSchultz/ioBroker.hp-ilo/tarball/master",
+    "adminUI": {
+      "config": "materialize"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ]
   },
   "native": {
     "ip": "",

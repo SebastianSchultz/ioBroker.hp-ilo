@@ -28,6 +28,10 @@ Supporting ILO interfaces from V2 upwards.
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.0.6 (2020-07-14)
 * (SebastianSchultz) Changed test scripts
 
